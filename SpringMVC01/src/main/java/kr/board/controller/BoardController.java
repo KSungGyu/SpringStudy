@@ -57,7 +57,7 @@ public class BoardController{	// new BoardController();
 	}
 	@PostMapping("/boardUpdate.do")
 	public String boardUpdate(Board vo) { // idx, title, content
-		mapper.boardUpdate(vo); // �닔�젙		
+		mapper.boardUpdate(vo); // 업데이트	
 		return "redirect:/boardList.do";
 	}
 }
