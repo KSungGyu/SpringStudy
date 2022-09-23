@@ -32,8 +32,8 @@ public class BoardController{	// new BoardController();
 		return "boardForm"; // /WEB-INF/views/boardForm.jsp -> forward
 	}
 	@PostMapping("/boardInsert.do")
-	public String boardInsert(Board vo) { // title, content, writer => 파라메터수집(Board)
-		mapper.boardInsert(vo); // 등록		
+	public String boardInsert(Board vo) { // title, content, writer => �뙆�씪硫뷀꽣�닔吏�(Board)
+		mapper.boardInsert(vo); // �벑濡�		
 		return "redirect:/boardList.do"; // redirect
 	}
 	@GetMapping("/boardContent.do")
@@ -46,7 +46,7 @@ public class BoardController{	// new BoardController();
 	}
 	@GetMapping("/boardDelete.do/{idx}")
 	public String boardDelete(@PathVariable("idx") int idx) { // ?idx=6
-		mapper.boardDelete(idx); //삭제		
+		mapper.boardDelete(idx); //�궘�젣		
 		return "redirect:/boardList.do";
 	}	
 	@GetMapping("/boardUpdateForm.do/{idx}")
@@ -57,7 +57,7 @@ public class BoardController{	// new BoardController();
 	}
 	@PostMapping("/boardUpdate.do")
 	public String boardUpdate(Board vo) { // idx, title, content
-		mapper.boardUpdate(vo); // 수정		
+		mapper.boardUpdate(vo); // �닔�젙		
 		return "redirect:/boardList.do";
 	}
 }

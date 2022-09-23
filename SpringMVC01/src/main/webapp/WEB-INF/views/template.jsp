@@ -18,7 +18,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">BOARD</div>
     <div class="panel-body">Panel Content</div>
-    <div class="panel-footer">인프런_스프1탄_박매일</div>
+    <div class="panel-footer">김성규</div>
   </div>
 </div>
 
