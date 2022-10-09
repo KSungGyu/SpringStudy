@@ -40,13 +40,13 @@
   		listHtml+="<td id='t"+obj.idx+"'><a href='javascript:goContent("+obj.idx+")'>"+obj.title+"</a></td>";
   		listHtml+="<td>"+obj.writer+"</td>";
   		listHtml+="<td>"+obj.indate+"</td>";
-  		listHtml+="<td>"+obj.count+"</td>";
+  		listHtml+="<td id='cnt"+obj.idx+"'>"+obj.count+"</td>";
   		listHtml+="</tr>";
   		
   		listHtml+="<tr id='c"+obj.idx+"' style='display:none'>";
   		listHtml+="<td>내용</td>";
   		listHtml+="<td colspan='4'>";
-  		listHtml+="<textarea id='ta"+obj.idx+"' readonly rows='7' class='form-control'>"+obj.content+"</textarea>";
+  		listHtml+="<textarea id='ta"+obj.idx+"' readonly rows='7' class='form-control'></textarea>";
   		listHtml+="<br/>";
   		listHtml+="<span id='ub"+obj.idx+"'><button class='btn btn-success btn-sm' onclick='goUpdateForm("+obj.idx+")'>수정화면</button></span>&nbsp;";
   		listHtml+="<button class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button>";
@@ -95,10 +95,33 @@
   	}
   	function goContent(idx){ // idx=11, 10, 9
   		if($("#c"+idx).css("display")=="none"){
+  			
+  			$.ajax({
+  				url : "boardCount.do",
+  				type : "get",
+  				data : { "idx" : idx},
+  				dataType : "json",
+  				success : function(data){ // data={  "content":~~~~  }
+  					$("#ta"+idx).val(data.content);
+  				},
+  				error : function(){ alert("error"); }
+  			});
+  			
   			$("#c"+idx).css("display","table-row"); //보이게
   			$("#ta"+idx).attr("readonly",true)
   		}else{
   			$("#c"+idx).css("display","none"); //감추게
+  			$.ajax({
+  				url : "boardCount.do",
+  				type : "get",
+  				data : {"idx" : idx},
+  				dataType : "json",
+  				success : function(data){
+  					$("#cnt"+idx).text(data.count);
+  				},
+  				error : function(){ alert("error"); }
+  				
+  			});
   		}
   	}
   	function goDelete(idx){
