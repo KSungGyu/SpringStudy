@@ -22,9 +22,9 @@ public class BoardController{
 	@Autowired
 	BoardMapper boardMapper;
 	
-	@RequestMapping("/")
+	@RequestMapping("/boardMain.do")
 	public String main() {
-		return "main";
+		return "board/main";
 	}
 	
 	// @ResponseBody -> jackson-databind(객체를->JSON 데이터형식으로 변환)
