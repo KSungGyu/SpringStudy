@@ -8,7 +8,7 @@
   
   <insert id="register" parameterType="kr.board.entity.Member">
 	 insert into
-	   mem_tbl(memID,memPassword,memName,memAge,memGender,memEmail,memProfile)
+	   mem_tb1(memID,memPassword,memName,memAge,memGender,memEmail,memProfile)
 	   values(#{memID},#{memPassword},#{memName},#{memAge},#{memGender},#{memEmail},#{memProfile})
   </insert>
 </mapper>

@@ -33,18 +33,23 @@ public class MemberController {
 	}
 	// 회원가입 처리
 	@RequestMapping("/memRegister.do")
-	public String memRegister(Member m, RedirectAttributes rttr, HttpSession session) {
+	public String memRegister(Member m, String memPassword1, String memPassword2, RedirectAttributes rttr, HttpSession session) {
 		if(m.getMemID()==null || m.getMemID().equals("") ||
-		   m.getMemPassword()==null || m.getMemPassword().equals("") ||
+		   memPassword1==null || memPassword1.equals("") ||
+		   memPassword2==null || memPassword2.equals("") ||
 		   m.getMemName()==null || m.getMemName().equals("") ||
-		   m.getMemAge()==0 || m.getMemName().equals("") ||
+		   m.getMemAge()==0 ||
 		   m.getMemGender()==null || m.getMemGender().equals("") ||
 		   m.getMemEmail()==null || m.getMemEmail().equals("")) {
 			// 누락메세지를 가지고 가기 => 객체바인딩(Model, HttpServletRequest, HttpSession)
 		   rttr.addFlashAttribute("msgType", "실패 메세지");
 		   rttr.addFlashAttribute("msg", "모든 내용을 입력하세요.");
-		   return "redirect:/memJoin.do"; // ${msgType} , ${msg} => join.jsp에서 체크
-			
+		   return "redirect:/memJoin.do"; // ${msgType} , ${msg} => join.jsp에서 체크	
+		}
+		if (!memPassword1.equals(memPassword2)) {
+			rttr.addFlashAttribute("msgType", "실패 메세지");
+			rttr.addFlashAttribute("msg", "비밀번호가 서로 다릅니다.");
+			return "redirect:/memJoin.do";
 		}
 		m.setMemProfile(""); // 사진이미지는 없다는 의미 "" 
 		// 회원을 테이블에 저장하기

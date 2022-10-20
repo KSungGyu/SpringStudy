@@ -20,13 +20,17 @@ values('게시판 연습','게시판 연습','선생님');
 select * from myboard order by idx desc;
 
 create table mem_tb1(
-	memIdx int auto_increment, //회원번호
-	memID varchar(20) not null, //회원아이디
-	memPassword varchar(20) not null, //비밀번호
-	memName varchar(20) not null, //이름
-	memAge int, //나이
-	memGender varchar(20), //성별
-	memEmail varchar(50), //이메일주소
-	memProfile varchar(50), //프로필사진
-	primary key(memIdx) // memIdx를 primary key로 지정
+	memIdx int auto_increment,
+	memID varchar(20) not null,
+	memPassword varchar(20) not null,
+	memName varchar(20) not null,
+	memAge int,
+	memGender varchar(20),
+	memEmail varchar(50),
+	memProfile varchar(50),
+	primary key(memIdx)
 );
+
+drop table myboard;
+
+select * from mem_tb1;
