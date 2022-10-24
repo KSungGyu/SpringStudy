@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -11,21 +11,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="${contextPath}/">½ºÇÁ1Åº</a>
+      <a class="navbar-brand" href="${contextPath}/">ìŠ¤í”„1íƒ„</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="${contextPath}/">Home</a></li>
-        <li><a href="boardMain.do">°Ô½ÃÆÇ</a></li>
+        <li><a href="boardMain.do">ê²Œì‹œíŒ</a></li>
         <li><a href="#">Page 2</a></li>
         </ul>
        <c:if test="${empty mvo}">
         <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Á¢¼ÓÇÏ±â <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">ì ‘ì†í•˜ê¸° <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">·Î±×ÀÎ</a></li>
-            <li><a href="${contextPath}/memJoin.do">È¸¿ø°¡ÀÔ</a></li>
+            <li><a href="${contextPath}/memLoginForm.do">ë¡œê·¸ì¸</a></li>
+            <li><a href="${contextPath}/memJoin.do">íšŒì›ê°€ìž…</a></li>
           </ul>
         </li>
       </ul>
@@ -33,11 +33,11 @@
      <c:if test="${!empty mvo}">
         <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">È¸¿ø°ü¸® <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">íšŒì›ê´€ë¦¬ <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">È¸¿øÁ¤º¸¼öÁ¤</a></li>
-            <li><a href="#">ÇÁ·ÎÇÊ»çÁøµî·Ï</a></li>
-            <li><a href="#">·Î±×¾Æ¿ô</a></li>
+            <li><a href="#">íšŒì›ì •ë³´ìˆ˜ì •</a></li>
+            <li><a href="#">í”„ë¡œí•„ì‚¬ì§„ë“±ë¡</a></li>
+            <li><a href="${contextPath}/memLogout.do">ë¡œê·¸ì•„ì›ƒ</a></li>
           </ul>
         </li>
       </ul>

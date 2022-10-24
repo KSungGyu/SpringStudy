@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
@@ -13,13 +13,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<jsp:include page="../common/header.jsp"/>
 <div class="container">
+<jsp:include page="../common/header.jsp"/>
   <h2>Spring MVC03</h2>
   <div class="panel panel-default">
     <div class="panel-heading">Panel Heading</div>
     <div class="panel-body">Panel Content</div>
-    <div class="panel-footer">½ºÇÁ1Åº_±è¼º±Ô</div>
+    <div class="panel-footer">ìŠ¤í”„1íƒ„_ê¹€ì„±ê·œ</div>
   </div>
 </div>
 

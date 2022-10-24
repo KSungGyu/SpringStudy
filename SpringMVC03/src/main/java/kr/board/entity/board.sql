@@ -9,13 +9,13 @@ create table myboard(
 );
 
 insert into myboard(title,content,writer)
-values('°Ô½ÃÆÇ ¿¬½À','°Ô½ÃÆÇ ¿¬½À','°ü¸®ÀÚ');
+values('ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
 insert into myboard(title,content,writer)
-values('°Ô½ÃÆÇ ¿¬½À','°Ô½ÃÆÇ ¿¬½À','¹Ú¸ÅÀÏ');
+values('ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ú¸ï¿½ï¿½ï¿½');
 
 insert into myboard(title,content,writer)
-values('°Ô½ÃÆÇ ¿¬½À','°Ô½ÃÆÇ ¿¬½À','¼±»ý´Ô');
+values('ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
 select * from myboard order by idx desc;
 
@@ -31,6 +31,6 @@ create table mem_tb1(
 	primary key(memIdx)
 );
 
-drop table myboard;
+drop table mem_tb1;
 
 select * from mem_tb1;

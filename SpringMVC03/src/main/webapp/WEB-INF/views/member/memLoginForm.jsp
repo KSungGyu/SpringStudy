@@ -12,28 +12,40 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script type="text/javascript">
-  $(document).ready(function(){
-		if(${!empty msgType}){
-				$("#messageType").attr("class", "modal-content panel-success");
+  	$(document).ready(function(){
+  		if(${!empty msgType}){
+  				$("#messageType").attr("class", "modal-content panel-warning");
 				$("#myMessage").modal("show");
-		}
-	});
+  		}
+  	});
   </script>
 </head>
 <body>
 <div class="container">
-<jsp:include page="common/header.jsp"/>
-  <c:if test="${empty mvo}">
-   <h2>Spring MVC03</h2>
-  </c:if>
-  <c:if test="${!empty mvo}">
-   <label>[사진]${mvo.memName}님 방문을 환영합니다.</label>
-  </c:if>
-  <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
-  <p>Only when the button is clicked, the navigation bar will be displayed.</p>
-</div>
-
-<!--  성공 메세지를 출력(Modal) -->
+  <jsp:include page="../common/header.jsp"/>
+  <h2>Spring MVC03</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">로그인화면</div>
+    <div class="panel-body">
+	   <form action="${contextPath}/memLogin.do" method="post">
+      	<table class="table table-bordered" style="text-align: center; border: 1px solid #dddddd;">
+      		<tr>
+      			<td style="width:110px; vertical-align: middle;">아이디</td>
+      			<td><input id="memID" name="memID" class="form-control" type="text" maxlength="20" placeholder="아이디를 입력하세요."/></td>
+      		</tr>
+      		<tr>
+      			<td style="width:110px; vertical-align: middle;">비밀번호</td>
+      			<td colspan="2"><input id="memPassword" name="memPassword" class="form-control" type="password" maxlength="20" placeholder="비밀번호를 입력하세요."/></td>
+      		</tr>
+      		<tr>
+      			<td colspan="2" style="text-align: left;">
+      				<input type="submit" class="btn btn-primary btn-sm pull-right" value="로그인"/>
+      			</td>
+      		</tr>
+      	</table>
+      </form>
+	</div>
+	<!--  실패 메세지를 출력(Modal) -->
 	<div id="myMessage" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -50,6 +62,9 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
+  </div>
+</div>
+    <div class="panel-footer">스프1탄_김성규</div>
   </div>
 </div>
 
