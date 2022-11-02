@@ -22,4 +22,8 @@
   						   memAge=#{memAge}, memGender=#{memGender}, memEmail=#{memEmail}
   						   where memID=#{memID}
   </update>
+  
+  <select id="getMember" resultType="kr.board.entity.Member">
+  	select * from mem_tb1 where memID=#{memID}
+  </select>
 </mapper>
