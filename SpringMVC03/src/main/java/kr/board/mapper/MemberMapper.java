@@ -16,4 +16,5 @@ public interface MemberMapper {
     public Member memLogin(Member mvo); // 로그인체크
     public int memUpdate(Member mvo); // 수정하기
     public Member getMember(String memID); //가져오기
+    public void memProfileUpdate(Member mvo); // sql 쿼리 만들어서 업데이트
 }

@@ -152,7 +152,7 @@ public class MemberController {
 	
 	// 회원사진 이미지 업로드(upload, DB저장)
 	@RequestMapping("/memImageUpdate.do")
-	public String memImageUpdate(HttpServletRequest request, RedirectAttributes rttr) {
+	public String memImageUpdate(HttpServletRequest request,HttpSession session, RedirectAttributes rttr) {
 		// 파일업로드 API(cos.jar, 3가지)
 		MultipartRequest multi=null;
 		int fileMaxSize=10*1024*1024;  // 10MB
@@ -192,7 +192,15 @@ public class MemberController {
 			}
 		}
 		// 새로운 이미지를 테이블에 업데이트
-		
-		return "";
+		Member mvo=new Member();
+		mvo.setMemID(memID);
+		mvo.setMemProfile(newProfile);
+		memberMapper.memProfileUpdate(mvo); // 이미지 업데이트 성공
+		Member m=memberMapper.getMember(memID);
+		// 세션 새로 생성
+		session.setAttribute("mvo", m);
+		rttr.addFlashAttribute("msgType", "성공 메세지");
+		rttr.addFlashAttribute("msg", "이미지 변경이 성공했습니다.");
+		return "redirect:/";
 	}
 }
