@@ -1,6 +1,4 @@
-package kr.bit.mapper;
-
-import java.util.List;
+package kr.bit.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,25 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.mysql.jdbc.log.Log;
-
-import kr.bit.entity.Board;
+import kr.bit.mapper.BoardMapperTest;
 import lombok.extern.log4j.Log4j;
 
 @Log4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
-public class BoardMapperTest {
-
+public class BoardServiceTest {
+	
 	@Autowired
-	BoardMapper boardMapper;
+	BoardService boardService;
 	
 	@Test
 	public void testGetList() {
-		List<Board> list=boardMapper.getList();
-		for(Board vo : list) {
-			System.out.println(vo);
-			
-		}
+		// List<Board>
+		boardService.getList().forEach(vo->log.info(vo));
 	}
 }
