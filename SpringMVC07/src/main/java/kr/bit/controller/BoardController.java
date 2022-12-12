@@ -23,6 +23,11 @@ public class BoardController {
 		List<Board> list=boardService.getList();
 		// °´Ã¼¹ÙÀÎµù
 		model.addAttribute("list", list); // Model
-		return "board/boardList"; // View
+		return "board/list"; // View
+	}
+	
+	@GetMapping("register")
+	public String register() {
+		return "board/register";
 	}
 }

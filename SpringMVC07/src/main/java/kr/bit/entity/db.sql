@@ -14,41 +14,43 @@ create table tblBoard(
 	primary key(idx)
 );
 
-select max(idx) from tblBoard; --NULL -> 1
-select IFNULL(max(idx)+1,1) from tblBoard;
-select IFNULL(max(boardGroup)+1,0) from tblBoard;
+select max(idx) from tblBoard; -- NULL -> 1 , 2+1->3
+select IFNULL(max(idx)+1, 1) from tblBoard;
+select IFNULL(max(boardGroup)+1, 0) from tblBoard;
 
 insert into tblBoard
-select IFNULL(max(idx)+1, 1),'bit01','°Ô½ÃÆÇ¿¬½À','°Ô½ÃÆÇ¿¬½À','°ü¸®ÀÚ',now(),0,IFNULL(max(boardGroup)+1,0),0, 0, 1 from tblBoard; 
-
-select * from tblBoard;
-
-insert into tblBoard
-select IFNULL(max(idx)+1, 1),'bit02','°Ô½ÃÆÇ¿¬½À','°Ô½ÃÆÇ¿¬½À','±è¼º±Ô',now(),0,IFNULL(max(boardGroup)+1,0),0, 0, 1 from tblBoard; 
-
-select * from tblBoard;
+select IFNULL(max(idx)+1, 1),'bit01','ê²Œì‹œíŒì—°ìŠµ','ê²Œì‹œíŒì—°ìŠµ','ê´€ë¦¬ì',
+now(),0, IFNULL(max(boardGroup)+1, 0), 0, 0, 1
+from tblBoard;
 
 insert into tblBoard
-select IFNULL(max(idx)+1, 1),'bit03','°Ô½ÃÆÇ¿¬½À','°Ô½ÃÆÇ¿¬½À','È«±æµ¿',now(),0,IFNULL(max(boardGroup)+1,0),0, 0, 1 from tblBoard; 
+select IFNULL(max(idx)+1, 1),'bit02','ê²Œì‹œíŒì—°ìŠµ','ê²Œì‹œíŒì—°ìŠµ','ê¹€ì„±ê·œ',
+now(),0, IFNULL(max(boardGroup)+1, 0), 0, 0, 1
+from tblBoard;
+
+insert into tblBoard
+select IFNULL(max(idx)+1, 1),'bit03','ê²Œì‹œíŒì—°ìŠµ','ê²Œì‹œíŒì—°ìŠµ','í™ê¸¸ë™',
+now(),0, IFNULL(max(boardGroup)+1, 0), 0, 0, 1
+from tblBoard;
 
 select * from tblBoard;
 
 create table tblMember(
-	memID varchar(50) not null, -- È¸¿øID
-  	memPwd varchar(50) not null, -- È¸¿øºñ¹ø
- 	memName varchar(50) not null, -- È¸¿øÀÌ¸§
-  	memPhone varchar(50) not null, -- È¸¿øÀüÈ­¹øÈ£
-  	memAddr varchar(100), -- È¸¿øÁÖ¼Ò
-  	latitude decimal(13,10), -- ÇöÀçÀ§Ä¡À§µµ
-  	longitude decimal(13,10), -- ÇöÀçÀ§Ä¡°æµµ
- 	primary key(memID)
+  memID varchar(50) not null, -- íšŒì›ID
+  memPwd varchar(50) not null, -- íšŒì›ë¹„ë²ˆ
+  memName varchar(50) not null, -- íšŒì›ì´ë¦„
+  memPhone varchar(50) not null, -- íšŒì›ì „í™”ë²ˆí˜¸
+  memAddr varchar(100), -- íšŒì›ì£¼ì†Œ
+  latitude decimal(13,10), -- í˜„ì¬ìœ„ì¹˜ìœ„ë„
+  longitude decimal(13,10), -- í˜„ì¬ìœ„ì¹˜ê²½ë„
+  primary key(memID)
 );
 
 insert into tblMember(memID, memPwd, memName, memPhone)
-values('bit01','bit01','°ü¸®ÀÚ','010-1111-1111');
+values('bit01','bit01','ê´€ë¦¬ì','010-1111-1111');
 insert into tblMember(memID, memPwd, memName, memPhone)
-values('bit02','bit02','±è¼º±Ô','010-2222-2222');
+values('bit02','bit02','ê¹€ì„±ê·œ','010-2222-2222');
 insert into tblMember(memID, memPwd, memName, memPhone)
-values('bit03','bit03','È«±æµ¿','010-3333-3333');
+values('bit03','bit03','í™ê¸¸ë™','010-3333-3333');
 
 select * from tblMember;
