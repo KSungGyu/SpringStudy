@@ -54,3 +54,9 @@ insert into tblMember(memID, memPwd, memName, memPhone)
 values('bit03','bit03','홍길동','010-3333-3333');
 
 select * from tblMember;
+
+select * from tblBoard;
+
+delete from tblBoard where idx=0;
+delete from tblBoard where idx=1;
+delete from tblBoard where idx=2;

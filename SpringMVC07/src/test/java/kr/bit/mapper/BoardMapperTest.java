@@ -22,11 +22,30 @@ public class BoardMapperTest {
 	BoardMapper boardMapper;
 	
 	@Test
+	/*
 	public void testGetList() {
 		List<Board> list=boardMapper.getList();
 		for(Board vo : list) {
 			System.out.println(vo);
 			
 		}
+	}*/
+	/*public void testInsert() {
+		Board vo=new Board();
+		vo.setMemID("bit01");
+		vo.setTitle("A");
+		vo.setContent("새로작성한 글");
+		vo.setWriter("관리자");
+		boardMapper.insert(vo);
+		log.info(vo);
+	}*/
+	public void testInsert() {
+		Board vo=new Board();
+		vo.setMemID("bit03");
+		vo.setTitle("C");
+		vo.setContent("새로작성한 글");
+		vo.setWriter("홍길동");
+		boardMapper.insertSelectKey(vo);
+		log.info(vo);
 	}
 }
