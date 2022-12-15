@@ -26,7 +26,29 @@
 <div class="container">
   <h2>Panel Heading</h2>
   <div class="panel panel-default">
-    <div class="panel-heading">BOARD</div>
+    <div class="panel-heading">
+    	<c:if test="${empty mvo}">
+	     <form class="form-inline" action="${cpath}/login/loginProcess" method="post">
+		  <div class="form-group">
+		    <label for="memID">ID:</label>
+		    <input type="text" class="form-control" name="memID">
+		  </div>
+		  <div class="form-group">
+		    <label for="memPwd">Password:</label>
+		    <input type="password" class="form-control" name="memPwd">
+		  </div>
+		  <button type="submit" class="btn btn-default">로그인</button>
+		 </form>
+		</c:if>
+		<c:if test="${!empty mvo}">
+		 <form class="form-inline" action="${cpath}/login/logoutProcess" method="post">
+		  <div class="form-group">
+		    <label>${mvo.memName}님 방문을 환영합니다.</label>		    
+		  </div>
+		  <button type="submit" class="btn btn-default">로그아웃</button>
+		 </form>
+		</c:if>
+    </div>
     <div class="panel-body">
     	<table class="table table-bordered table-hover">
     		<thead>
@@ -42,16 +64,18 @@
     			<tr>
     				<td>${vo.idx}</td>
     				<td>${vo.title}</td>
-    				<td>${vo.content}</td>
+    				<td>${vo.writer}</td>
     				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.indate}"/></td>
     				<td>${vo.count}</td>
     			</tr>
     		</c:forEach>
+    		<c:if test="${!empty mvo}">
     		<tr>
     			<td colspan="5">
-    				<button id="regBtn" class="btn btn-xs pull-right">글쓰기</button>
+    				<button id="regBtn" class="btn btn-sm btn-primary pull-right">글쓰기</button>
     			</td>
     		</tr>
+    		</c:if>
     	</table>
     </div>
     <div class="panel-footer">스프2탄(답변형 게시판 만들기)</div>

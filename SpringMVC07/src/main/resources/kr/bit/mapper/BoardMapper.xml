@@ -19,6 +19,11 @@
 		</selectKey>
 		insert into tblBoard(idx,memID,title,content,writer,boardGroup,boardSequence,boardLevel,boardAvailable)
 		values(#{idx},#{memID},#{title},#{content},#{writer},#{boardGroup},0,0,1)
+		
 	</insert>
+	
+	<select id="login" resultType="kr.bit.entity.Member" parameterType="kr.bit.entity.Member">
+		select * from tblMember where memID=#{memID} and memPwd=#{memPwd}
+	</select>
 	
 </mapper>
