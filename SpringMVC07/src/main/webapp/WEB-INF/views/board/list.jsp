@@ -14,11 +14,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script type="text/javascript">
-  	$(document).ready(function(){
-  		$("#regBtn").click(function(){
-  			location.href="${cpath}/board/register";
-  		});
-  	});
+  $(document).ready(function(){
+  	var result='${result}'; 
+  	checkModal(result); 
+  	 
+  	$("#regBtn").click(function(){
+  		location.href="${cpath}/board/register";
+  	});     	 
+   });
+   function checkModal(result){
+  	 if(result==''){
+  		 return;
+  	 }
+  	 if(parseInt(result)>0){
+  		 // 새로운 다이얼로그 창 띄우기
+  		 $(".modal-body").html("게시글 "+parseInt(result)+"번이 등록되었습니다.");    		 
+  	 }
+  	 $("#myModal").modal("show");
+   }
   </script>
 </head>
 <body>
@@ -63,7 +76,7 @@
     		<c:forEach var="vo" items="${list}">
     			<tr>
     				<td>${vo.idx}</td>
-    				<td>${vo.title}</td>
+    				<td><a href="${cpath}/board/get?idx=${vo.idx}">${vo.title}</a></td>
     				<td>${vo.writer}</td>
     				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.indate}"/></td>
     				<td>${vo.count}</td>
@@ -77,6 +90,26 @@
     		</tr>
     		</c:if>
     	</table>
+    	<!-- Modal 추가 -->
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+		
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">Modal Header</h4>
+		      </div>
+		      <div class="modal-body">
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		
+		  </div>
+		</div>
+		<!-- Modal End -->
     </div>
     <div class="panel-footer">스프2탄(답변형 게시판 만들기)</div>
   </div>

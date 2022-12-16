@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.bit.entity.Board;
 import kr.bit.service.BoardService;
@@ -33,8 +35,17 @@ public class BoardController {
 	}
 	
 	@PostMapping("/register")
-	public String register(Board vo) { //파라미터 수집(vo) 전 한글인코딩
+	public String register(Board vo, RedirectAttributes rttr) { //파라미터 수집(vo) 전 한글인코딩
 		boardService.register(vo);
+		System.out.println(vo);
+		rttr.addFlashAttribute("result", vo.getIdx()); // ${result}
 		return "redirect:/board/list";
+	}
+	
+	@GetMapping("/get")
+	public String get(@RequestParam("idx") int idx, Model model) {
+		Board vo=boardService.get(idx);
+		model.addAttribute("vo", vo);
+		return "board/get"; // /WEB-INF/views/board/get.jsp
 	}
 }

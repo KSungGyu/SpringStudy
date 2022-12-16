@@ -11,4 +11,5 @@ public interface BoardMapper {
 	public void insert(Board vo);
 	public void insertSelectKey(Board vo);
 	public Member login(Member vo); // SQL
+	public Board read(int idx);
 }

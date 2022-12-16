@@ -19,39 +19,39 @@ select IFNULL(max(idx)+1, 1) from tblBoard;
 select IFNULL(max(boardGroup)+1, 0) from tblBoard;
 
 insert into tblBoard
-select IFNULL(max(idx)+1, 1),'bit01','ê²Œì‹œíŒì—°ìŠµ','ê²Œì‹œíŒì—°ìŠµ','ê´€ë¦¬ì',
+select IFNULL(max(idx)+1, 1),'bit01','°Ô½ÃÆÇ¿¬½À','°Ô½ÃÆÇ¿¬½À','°ü¸®ÀÚ',
 now(),0, IFNULL(max(boardGroup)+1, 0), 0, 0, 1
 from tblBoard;
 
 insert into tblBoard
-select IFNULL(max(idx)+1, 1),'bit02','ê²Œì‹œíŒì—°ìŠµ','ê²Œì‹œíŒì—°ìŠµ','ê¹€ì„±ê·œ',
+select IFNULL(max(idx)+1, 1),'bit02','°Ô½ÃÆÇ¿¬½À','°Ô½ÃÆÇ¿¬½À','±è¼º±Ô',
 now(),0, IFNULL(max(boardGroup)+1, 0), 0, 0, 1
 from tblBoard;
 
 insert into tblBoard
-select IFNULL(max(idx)+1, 1),'bit03','ê²Œì‹œíŒì—°ìŠµ','ê²Œì‹œíŒì—°ìŠµ','í™ê¸¸ë™',
+select IFNULL(max(idx)+1, 1),'bit03','°Ô½ÃÆÇ¿¬½À','°Ô½ÃÆÇ¿¬½À','È«±æµ¿',
 now(),0, IFNULL(max(boardGroup)+1, 0), 0, 0, 1
 from tblBoard;
 
 select * from tblBoard;
 
 create table tblMember(
-  memID varchar(50) not null, -- íšŒì›ID
-  memPwd varchar(50) not null, -- íšŒì›ë¹„ë²ˆ
-  memName varchar(50) not null, -- íšŒì›ì´ë¦„
-  memPhone varchar(50) not null, -- íšŒì›ì „í™”ë²ˆí˜¸
-  memAddr varchar(100), -- íšŒì›ì£¼ì†Œ
-  latitude decimal(13,10), -- í˜„ì¬ìœ„ì¹˜ìœ„ë„
-  longitude decimal(13,10), -- í˜„ì¬ìœ„ì¹˜ê²½ë„
+  memID varchar(50) not null,
+  memPwd varchar(50) not null,
+  memName varchar(50) not null,
+  memPhone varchar(50) not null,
+  memAddr varchar(100),
+  latitude decimal(13,10),
+  longitude decimal(13,10),
   primary key(memID)
 );
 
 insert into tblMember(memID, memPwd, memName, memPhone)
-values('bit01','bit01','ê´€ë¦¬ì','010-1111-1111');
+values('bit01','bit01','°ü¸®ÀÚ','010-1111-1111');
 insert into tblMember(memID, memPwd, memName, memPhone)
-values('bit02','bit02','ê¹€ì„±ê·œ','010-2222-2222');
+values('bit02','bit02','±è¼º±Ô','010-2222-2222');
 insert into tblMember(memID, memPwd, memName, memPhone)
-values('bit03','bit03','í™ê¸¸ë™','010-3333-3333');
+values('bit03','bit03','È«±æµ¿','010-3333-3333');
 
 select * from tblMember;
 
