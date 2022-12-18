@@ -26,8 +26,18 @@
 		select * from tblBoard where idx=#{idx}
 	</select>
 	
+	<update id="update" parameterType="kr.bit.entity.Board">
+		update tblBoard set title=#{title},content=#{content} where idx=#{idx}
+	</update>
+	
+	<delete id="delete">
+		delete from tblBoard where idx=#{idx}
+	</delete>
+	
 	<select id="login" resultType="kr.bit.entity.Member" parameterType="kr.bit.entity.Member">
 		select * from tblMember where memID=#{memID} and memPwd=#{memPwd}
 	</select>
+	
+	
 	
 </mapper>

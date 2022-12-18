@@ -40,6 +40,16 @@ public class BoardServiceImpl implements BoardService{
 		Board vo=boardMapper.read(idx);
 		return vo;
 	}
+
+	@Override
+	public void modify(Board vo) {
+		boardMapper.update(vo);
+	}
+
+	@Override
+	public void remove(int idx) {
+		boardMapper.delete(idx);
+	}
 	
 
 }

@@ -21,6 +21,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">BOARD</div>
     <div class="panel-body">
+    	<form action="${cpath}/board/modify" method="post">
     	<table class="table table-bordered">
     		<tr>
     		  <td>번호</td>
@@ -28,11 +29,11 @@
     		</tr>
     		<tr>
     		  <td>제목</td>
-    		  <td><input type="text" class="form-control" name="title" readonly="readonly" value="${vo.title}"/></td>
+    		  <td><input type="text" class="form-control" name="title" value="${vo.title}"/></td>
     		</tr>
     		<tr>
     		  <td>내용</td>
-    		  <td><textarea rows="10" class="form-control" readonly="readonly">${vo.content}</textarea></td>
+    		  <td><textarea rows="10" class="form-control" name="content">${vo.content}</textarea></td>
     		</tr>
     		<tr>
     		  <td>작성자</td>
@@ -40,18 +41,19 @@
     		</tr>
     		<tr>
     			<td colspan="2" style="text-align: center;">
-    				<c:if test="${!empty mvo}">
-	    				<button class="btn btn-sm btn-primary">답글</button>
-	    				<button class="btn btn-sm btn-success" onclick="location.href='${cpath}/board/modify?idx=${vo.idx}'">수정</button>
+    				<c:if test="${!empty mvo && mvo.memID eq vo.memID}">
+	    				<button type="submit" class="btn btn-sm btn-primary">수정</button>
+	    				<button type="button" class="btn btn-sm btn-warning" onclick="location.href='${cpath}/board/remove?idx=${vo.idx}'">삭제</button>
     				</c:if>
-    				<c:if test="${empty mvo}">
-	    				<button disabled="disabled" class="btn btn-sm btn-primary">답글</button>
-	    				<button disabled="disabled" class="btn btn-sm btn-success" onclick="location.href='${cpath}/board/modify?idx=${vo.idx}'">수정</button>
+    				<c:if test="${empty mvo || mvo.memID ne vo.memID}">
+	    				<button disabled="disabled" type="submit" class="btn btn-sm btn-primary">수정</button>
+	    				<button disabled="disabled" type="button" class="btn btn-sm btn-warning" onclick="location.href='${cpath}/board/remove?idx=${vo.idx}'">삭제</button>
     				</c:if>
-    				<button class="btn btn-sm btn-info" onclick="location.href='${cpath}/board/list'">목록</button>
+    				<button type="button" class="btn btn-sm btn-info" onclick="location.href='${cpath}/board/list'">목록</button>
     			</td>
     		</tr>
     	</table>
+    	</form>
     </div>
     <div class="panel-footer">스프2탄(답변형 게시판 만들기)</div>
   </div>
