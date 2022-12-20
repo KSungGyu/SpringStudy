@@ -50,6 +50,11 @@ public class BoardServiceImpl implements BoardService{
 	public void remove(int idx) {
 		boardMapper.delete(idx);
 	}
+
+	@Override
+	public void replyProcess(Board vo) {
+
+	}
 	
 
 }
