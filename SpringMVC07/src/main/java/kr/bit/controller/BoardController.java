@@ -78,7 +78,7 @@ public class BoardController {
 	@PostMapping("/reply")
 	public String reply(Board vo) {
 		// 답글에 필요한 처리
-		
+		boardService.replyProcess(vo); // 답글 저장됨
 		return "redirect:/board/list";
 	}
 }

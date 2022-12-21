@@ -41,7 +41,7 @@
     		<tr>
     			<td colspan="2" style="text-align: center;">
     				<c:if test="${!empty mvo}">
-	    				<button class="btn btn-sm btn-primary" onclick="location.href='${cpath}/board/reply}?idx=${vo.idx}'">답글</button>
+	    				<button class="btn btn-sm btn-primary" onclick="location.href='${cpath}/board/reply?idx=${vo.idx}'">답글</button>
 	    				<button class="btn btn-sm btn-success" onclick="location.href='${cpath}/board/modify?idx=${vo.idx}'">수정</button>
     				</c:if>
     				<c:if test="${empty mvo}">
