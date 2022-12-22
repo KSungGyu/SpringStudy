@@ -32,6 +32,9 @@
   	 }
   	 $("#myModal").modal("show");
    }
+   function goMsg(){
+	   alert("삭제된 게시물입니다."); //모달창
+   }
   </script>
 </head>
 <body>
@@ -76,7 +79,29 @@
     		<c:forEach var="vo" items="${list}">
     			<tr>
     				<td>${vo.idx}</td>
-    				<td><a href="${cpath}/board/get?idx=${vo.idx}">${vo.title}</a></td>
+    				<td>
+    				<c:if test="${vo.boardLevel>0}">
+    					<c:forEach begin="1" end="${vo.boardLevel}">
+    						<span style="padding-left: 10px"></span>
+    					</c:forEach>
+    				</c:if>
+    				<c:if test="${vo.boardLevel>0}">
+    					<c:if test="${vo.boardAvailable==1}">
+    					 <a href="${cpath}/board/get?idx=${vo.idx}">[RE]${vo.title}</a>
+    					</c:if>
+    					<c:if test="${vo.boardAvailable==0}">
+    					 <a href="javascript:goMsg()">[RE]삭제된 게시물 입니다.</a>
+    					</c:if>
+    				</c:if>
+    				<c:if test="${vo.boardLevel==0}">
+    					<c:if test="${vo.boardAvailable==1}">
+    					<a href="${cpath}/board/get?idx=${vo.idx}">${vo.title}</a>
+    					</c:if>
+    					<c:if test="${vo.boardAvailable==0}">
+    					<a href="javascript:goMsg()">삭제된 게시물 입니다.</a>
+    					</c:if>
+    				</c:if>
+    				</td>
     				<td>${vo.writer}</td>
     				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.indate}"/></td>
     				<td>${vo.count}</td>

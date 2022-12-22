@@ -19,17 +19,17 @@ select IFNULL(max(idx)+1, 1) from tblBoard;
 select IFNULL(max(boardGroup)+1, 0) from tblBoard;
 
 insert into tblBoard
-select IFNULL(max(idx)+1, 1),'bit01','ï¿½Ô½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½','ï¿½Ô½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+select IFNULL(max(idx)+1, 1),'bit01','°Ô½ÃÆÇ¿¬½À','°Ô½ÃÆÇ¿¬½À','°ü¸®ÀÚ',
 now(),0, IFNULL(max(boardGroup)+1, 0), 0, 0, 1
 from tblBoard;
 
 insert into tblBoard
-select IFNULL(max(idx)+1, 1),'bit02','ï¿½Ô½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½','ï¿½Ô½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½','ï¿½è¼ºï¿½ï¿½',
+select IFNULL(max(idx)+1, 1),'bit02','°Ô½ÃÆÇ¿¬½À','°Ô½ÃÆÇ¿¬½À','±è¼º±Ô',
 now(),0, IFNULL(max(boardGroup)+1, 0), 0, 0, 1
 from tblBoard;
 
 insert into tblBoard
-select IFNULL(max(idx)+1, 1),'bit03','ï¿½Ô½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½','ï¿½Ô½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½','È«ï¿½æµ¿',
+select IFNULL(max(idx)+1, 1),'bit03','°Ô½ÃÆÇ¿¬½À','°Ô½ÃÆÇ¿¬½À','È«±æµ¿',
 now(),0, IFNULL(max(boardGroup)+1, 0), 0, 0, 1
 from tblBoard;
 
@@ -47,11 +47,11 @@ create table tblMember(
 );
 
 insert into tblMember(memID, memPwd, memName, memPhone)
-values('bit01','bit01','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','010-1111-1111');
+values('bit01','bit01','°ü¸®ÀÚ','010-1111-1111');
 insert into tblMember(memID, memPwd, memName, memPhone)
-values('bit02','bit02','ï¿½è¼ºï¿½ï¿½','010-2222-2222');
+values('bit02','bit02','±è¼º±Ô','010-2222-2222');
 insert into tblMember(memID, memPwd, memName, memPhone)
-values('bit03','bit03','È«ï¿½æµ¿','010-3333-3333');
+values('bit03','bit03','È«±æµ¿','010-3333-3333');
 
 select * from tblMember;
 
